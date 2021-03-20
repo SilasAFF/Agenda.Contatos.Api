@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "4hGShYxuAIojBTOyBqjBTctD/WSRbrgXZwSGTGsJLC+3FZfIWxSNw2rOY7eU67tAKXIkmb03vaqwvF9QqXiBOw==",
+  "dgSpecHash": "pH4tz2hDlfKk6ohRNky4+Y74H+6OwJ8PZMIgAitmirQdnN7QD18C/F3FvIawE83gLOyIozcZnVszrAVdNI18Zg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Silas\\Documents\\MeusProjetos\\Agenda.Contatos.Api\\src\\Agenda.Contatos.Business\\Agenda.Contatos.Business.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Git\\Agenda.Contatos.Api\\src\\Agenda.Contatos.Business\\Agenda.Contatos.Business.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Silas\\.nuget\\packages\\fluentvalidation\\9.5.3\\fluentvalidation.9.5.3.nupkg.sha512"
+  ],
   "logs": []
 }

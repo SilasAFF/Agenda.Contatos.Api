@@ -1,0 +1,15 @@
+C:\Git\Agenda.Contatos.Api\src\Agenda.Contatos.Data\bin\Debug\netcoreapp3.1\Agenda.Contatos.Business.dll
+C:\Git\Agenda.Contatos.Api\src\Agenda.Contatos.Data\obj\Debug\netcoreapp3.1\Agenda.Contatos.Data.csprojAssemblyReference.cache
+C:\Git\Agenda.Contatos.Api\src\Agenda.Contatos.Data\obj\Debug\netcoreapp3.1\Agenda.Contatos.Data.AssemblyInfoInputs.cache
+C:\Git\Agenda.Contatos.Api\src\Agenda.Contatos.Data\obj\Debug\netcoreapp3.1\Agenda.Contatos.Data.AssemblyInfo.cs
+C:\Git\Agenda.Contatos.Api\src\Agenda.Contatos.Data\obj\Debug\netcoreapp3.1\Agenda.Contatos.Data.csproj.CoreCompileInputs.cache
+C:\Git\Agenda.Contatos.Api\src\Agenda.Contatos.Data\bin\Debug\netcoreapp3.1\Agenda.Contatos.Data.deps.json
+C:\Git\Agenda.Contatos.Api\src\Agenda.Contatos.Data\bin\Debug\netcoreapp3.1\Agenda.Contatos.Data.runtimeconfig.json
+C:\Git\Agenda.Contatos.Api\src\Agenda.Contatos.Data\bin\Debug\netcoreapp3.1\Agenda.Contatos.Data.runtimeconfig.dev.json
+C:\Git\Agenda.Contatos.Api\src\Agenda.Contatos.Data\bin\Debug\netcoreapp3.1\Agenda.Contatos.Data.dll
+C:\Git\Agenda.Contatos.Api\src\Agenda.Contatos.Data\bin\Debug\netcoreapp3.1\Agenda.Contatos.Data.pdb
+C:\Git\Agenda.Contatos.Api\src\Agenda.Contatos.Data\bin\Debug\netcoreapp3.1\Agenda.Contatos.Business.pdb
+C:\Git\Agenda.Contatos.Api\src\Agenda.Contatos.Data\obj\Debug\netcoreapp3.1\Agenda.Contatos.Data.csproj.CopyComplete
+C:\Git\Agenda.Contatos.Api\src\Agenda.Contatos.Data\obj\Debug\netcoreapp3.1\Agenda.Contatos.Data.dll
+C:\Git\Agenda.Contatos.Api\src\Agenda.Contatos.Data\obj\Debug\netcoreapp3.1\Agenda.Contatos.Data.pdb
+C:\Git\Agenda.Contatos.Api\src\Agenda.Contatos.Data\obj\Debug\netcoreapp3.1\Agenda.Contatos.Data.genruntimeconfig.cache

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Silas\\Documents\\MeusProjetos\\Agenda.Contatos.Api\\src\\Agenda.Contatos.Business\\Agenda.Contatos.Business.csproj": {}
+    "C:\\Git\\Agenda.Contatos.Api\\src\\Agenda.Contatos.Business\\Agenda.Contatos.Business.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Silas\\Documents\\MeusProjetos\\Agenda.Contatos.Api\\src\\Agenda.Contatos.Business\\Agenda.Contatos.Business.csproj": {
+    "C:\\Git\\Agenda.Contatos.Api\\src\\Agenda.Contatos.Business\\Agenda.Contatos.Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Silas\\Documents\\MeusProjetos\\Agenda.Contatos.Api\\src\\Agenda.Contatos.Business\\Agenda.Contatos.Business.csproj",
+        "projectUniqueName": "C:\\Git\\Agenda.Contatos.Api\\src\\Agenda.Contatos.Business\\Agenda.Contatos.Business.csproj",
         "projectName": "Agenda.Contatos.Business",
-        "projectPath": "C:\\Users\\Silas\\Documents\\MeusProjetos\\Agenda.Contatos.Api\\src\\Agenda.Contatos.Business\\Agenda.Contatos.Business.csproj",
+        "projectPath": "C:\\Git\\Agenda.Contatos.Api\\src\\Agenda.Contatos.Business\\Agenda.Contatos.Business.csproj",
         "packagesPath": "C:\\Users\\Silas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Silas\\Documents\\MeusProjetos\\Agenda.Contatos.Api\\src\\Agenda.Contatos.Business\\obj\\",
+        "outputPath": "C:\\Git\\Agenda.Contatos.Api\\src\\Agenda.Contatos.Business\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Silas\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,12 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[9.5.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

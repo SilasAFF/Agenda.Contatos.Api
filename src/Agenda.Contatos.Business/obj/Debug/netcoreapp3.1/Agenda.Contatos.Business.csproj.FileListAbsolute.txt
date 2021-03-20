@@ -1,0 +1,9 @@
+C:\Git\Agenda.Contatos.Api\src\Agenda.Contatos.Business\obj\Debug\netcoreapp3.1\Agenda.Contatos.Business.csprojAssemblyReference.cache
+C:\Git\Agenda.Contatos.Api\src\Agenda.Contatos.Business\obj\Debug\netcoreapp3.1\Agenda.Contatos.Business.AssemblyInfoInputs.cache
+C:\Git\Agenda.Contatos.Api\src\Agenda.Contatos.Business\obj\Debug\netcoreapp3.1\Agenda.Contatos.Business.AssemblyInfo.cs
+C:\Git\Agenda.Contatos.Api\src\Agenda.Contatos.Business\obj\Debug\netcoreapp3.1\Agenda.Contatos.Business.csproj.CoreCompileInputs.cache
+C:\Git\Agenda.Contatos.Api\src\Agenda.Contatos.Business\bin\Debug\netcoreapp3.1\Agenda.Contatos.Business.deps.json
+C:\Git\Agenda.Contatos.Api\src\Agenda.Contatos.Business\bin\Debug\netcoreapp3.1\Agenda.Contatos.Business.dll
+C:\Git\Agenda.Contatos.Api\src\Agenda.Contatos.Business\bin\Debug\netcoreapp3.1\Agenda.Contatos.Business.pdb
+C:\Git\Agenda.Contatos.Api\src\Agenda.Contatos.Business\obj\Debug\netcoreapp3.1\Agenda.Contatos.Business.dll
+C:\Git\Agenda.Contatos.Api\src\Agenda.Contatos.Business\obj\Debug\netcoreapp3.1\Agenda.Contatos.Business.pdb
