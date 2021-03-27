@@ -23,17 +23,6 @@ namespace Agenda.Contatos.Data.Repository
             DbSet = db.Set<TEntidadeBase>();
         }
 
-        public async Task<IEnumerable<TEntidadeBase>> Buscar(Expression<Func<TEntidadeBase, bool>> predicate)
-        {
-            return await DbSet.AsNoTracking().Where(predicate).ToListAsync();
-        }
-
-        public virtual async Task<TEntidadeBase> ObterPorId(Guid id)
-        {
-            //return await DbSet.FindAsync(id); //Tive que comentar pq nao tinha AsNoTracking e tava dando erro na hora de deletar os dados pq tava abrindo transação na chamada desse metodo e não tava fechando antes de fazer o Remove
-            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.Id == id);
-        }
-
         public virtual async Task<List<TEntidadeBase>> ObterTodos()
         {
             return await DbSet.ToListAsync();
@@ -55,6 +44,17 @@ namespace Agenda.Contatos.Data.Repository
         {
             DbSet.Remove(new TEntidadeBase { Id = id });
             await SaveChanges();
+        }
+
+        public virtual async Task<TEntidadeBase> ObterPorId(Guid id)
+        {
+            //return await DbSet.FindAsync(id); //Tive que comentar pq nao tinha AsNoTracking e tava dando erro na hora de deletar os dados pq tava abrindo transação na chamada desse metodo e não tava fechando antes de fazer o Remove
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.Id == id);
+        }
+
+        public async Task<IEnumerable<TEntidadeBase>> Buscar(Expression<Func<TEntidadeBase, bool>> predicate)
+        {
+            return await DbSet.AsNoTracking().Where(predicate).ToListAsync();
         }
 
         public async Task<int> SaveChanges()

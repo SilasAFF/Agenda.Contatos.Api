@@ -14,7 +14,6 @@ namespace Agenda.Contatos.Business.Services
         private readonly IContatoRepository _contatoRepository;
         private readonly IEnderecoRepository _enderecoRepository;
 
-
         public ContatoService(IContatoRepository contatoRepository, IEnderecoRepository enderecoRepository,
                                  INotificador notificador) : base(notificador)
         {
@@ -24,12 +23,10 @@ namespace Agenda.Contatos.Business.Services
 
         public async Task<bool> Adicionar(Contato contato)
         {
-            if (!ExecutarValidacao(new ContatoValidation(), contato)
-                /*|| !ExecutarValidacao(new EnderecoValidation(), contato.Endereco)*/) return false;
 
             if (_contatoRepository.Buscar(f => f.Numero == contato.Numero).Result.Any())
             {
-                Notificar("Já existe um contato com este numero informado.");
+                Notificar("Já existe um contato com este Número informado.");
                 return false;
             }
 
@@ -39,11 +36,11 @@ namespace Agenda.Contatos.Business.Services
 
         public async Task<bool> Atualizar(Contato contato)
         {
-            if (!ExecutarValidacao(new ContatoValidation(), contato)) return false;
+            //if (!ExecutarValidacao(new ContatoValidation(), contato)) return false;
 
             if (_contatoRepository.Buscar(f => f.Numero == contato.Numero && f.Id != contato.Id).Result.Any())
             {
-                Notificar("Já existe um contato com este numero informado.");
+                Notificar("Já existe um contato com este Número informado.");
                 return false;
             }
 
@@ -53,7 +50,7 @@ namespace Agenda.Contatos.Business.Services
 
         public async Task AtualizarEndereco(Endereco endereco)
         {
-            if (!ExecutarValidacao(new EnderecoValidation(), endereco)) return;
+            //if (!ExecutarValidacao(new EnderecoValidation(), endereco)) return;
 
             await _enderecoRepository.Atualizar(endereco);
         }

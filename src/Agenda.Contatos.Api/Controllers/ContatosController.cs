@@ -27,7 +27,8 @@ namespace Agenda.Contatos.Api.Controllers
         [HttpGet]
         public async Task<IEnumerable<ContatoViewModel>> ObterTodos()
         {
-            var contato = _mapper.Map<IEnumerable<ContatoViewModel>>(await _contatoRepository.ObterTodos());
+            //var contato = _mapper.Map<IEnumerable<ContatoViewModel>>(await _contatoRepository.ObterTodos());
+            var contato = _mapper.Map<IEnumerable<ContatoViewModel>>(await _contatoRepository.ObterContatosOrdenados());  
             return contato;
         }
 
@@ -41,19 +42,12 @@ namespace Agenda.Contatos.Api.Controllers
             return contato;
         }
 
-        //[Route("api/clientes/adicionar")]
         [HttpPost]
         public async Task<ActionResult<ContatoViewModel>> Adicionar(ContatoViewModel contatoViewModel)
         {
 
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
-            //var cliente = _mapper.Map<Cliente>(ClienteViewModel);
-            //var result = await _clienteService.Adicionar(cliente);
-            //
-            //if (!result) return BadRequest();
-            //
-            //return Ok(cliente);
             await _contatoService.Adicionar(_mapper.Map<Contato>(contatoViewModel));
 
             return CustomResponse(contatoViewModel);
@@ -64,15 +58,11 @@ namespace Agenda.Contatos.Api.Controllers
         {
 
             if (!ModelState.IsValid) return CustomResponse(ModelState);
+
             if (id != contatoViewModel.Id) return BadRequest();
-            /*
-            if (id != ClienteViewModel.Id) return BadRequest();
-            var cliente = _mapper.Map<Cliente>(ClienteViewModel);
-            var result = await _clienteService.Atualizar(cliente);
-            if (!result) return BadRequest();
-            return Ok(cliente);
-            */
+
             await _contatoService.Atualizar(_mapper.Map<Contato>(contatoViewModel));
+
             return CustomResponse(contatoViewModel);
         }
 
