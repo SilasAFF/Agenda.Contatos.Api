@@ -21,6 +21,7 @@ namespace Agenda.Contatos.Api.Configuration
             services.AddScoped<IEnderecoRepository, EnderecoRepository>();
             services.AddScoped<INotificador, Notificador>();
             services.AddScoped<IContatoService, ContatoService>();
+            services.AddScoped<IEnderecoService, EnderecoService>();
 
             return services;
         }

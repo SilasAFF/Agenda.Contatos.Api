@@ -3,8 +3,6 @@ using Agenda.Contatos.Business.Models;
 using Agenda.Contatos.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Agenda.Contatos.Data.Repository
