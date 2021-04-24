@@ -1,9 +1,13 @@
 ﻿using Agenda.Contatos.Business.Interfaces;
 using Agenda.Contatos.Business.Notificacoes;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 
 namespace Agenda.Contatos.Api.Controllers
 {
@@ -11,11 +15,22 @@ namespace Agenda.Contatos.Api.Controllers
     public class MainController : ControllerBase
     {
         private readonly INotificador _notificador;
+        private readonly IUser _appUser;
 
-        protected MainController(INotificador notificador)
+        public Guid UsuarioId { get; set; }
+        protected bool UsuarioAutenticado { get; set; }
+
+        protected MainController(INotificador notificador, IUser appUser)
         {
             _notificador = notificador;
+            _appUser = appUser;
 
+            /*if (appUser.IsAutheticated())
+            {
+                //UsuarioId = Guid.NewGuid();//appUser.GetUserId();
+                UsuarioId = Guid.Parse(HttpContext.Session.GetString("Key"));
+                UsuarioAutenticado = true;
+            }*/
         }
 
         protected bool OperacaoValida()

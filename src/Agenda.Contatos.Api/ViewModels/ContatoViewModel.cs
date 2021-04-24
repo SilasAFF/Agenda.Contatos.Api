@@ -24,7 +24,7 @@ namespace Agenda.Contatos.Api.ViewModels
 
         public EnderecoViewModel Endereco { get; set; }
 
-        
+        public string UserId { get; set; }
 
     }
 }

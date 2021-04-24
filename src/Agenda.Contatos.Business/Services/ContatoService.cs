@@ -14,8 +14,9 @@ namespace Agenda.Contatos.Business.Services
         private readonly IContatoRepository _contatoRepository;
         private readonly IEnderecoRepository _enderecoRepository;
 
-        public ContatoService(IContatoRepository contatoRepository, IEnderecoRepository enderecoRepository,
-                                 INotificador notificador) : base(notificador)
+        public ContatoService(IContatoRepository contatoRepository, 
+                              IEnderecoRepository enderecoRepository,
+                              INotificador notificador) : base(notificador)
         {
             _contatoRepository = contatoRepository;
             _enderecoRepository = enderecoRepository;
@@ -24,7 +25,7 @@ namespace Agenda.Contatos.Business.Services
         public async Task<bool> Adicionar(Contato contato)
         {
 
-            if (_contatoRepository.Buscar(f => f.Numero == contato.Numero).Result.Any())
+            if (_contatoRepository.Buscar(f => f.Numero == contato.Numero && f.UserId == contato.UserId).Result.Any())
             {
                 Notificar("Já existe um contato com este Número informado.");
                 return false;
@@ -38,7 +39,7 @@ namespace Agenda.Contatos.Business.Services
         {
             //if (!ExecutarValidacao(new ContatoValidation(), contato)) return false;
 
-            if (_contatoRepository.Buscar(f => f.Numero == contato.Numero && f.Id != contato.Id).Result.Any())
+            if (_contatoRepository.Buscar(f => f.Numero == contato.Numero && f.UserId == contato.UserId && f.Id != contato.Id).Result.Any())
             {
                 Notificar("Já existe um contato com este Número informado.");
                 return false;

@@ -11,7 +11,7 @@ namespace Agenda.Contatos.Business.Models
         public string Email { get; set; }
         public bool Favorito { get; set; }
         public Endereco Endereco { get; set; }
-
+        public string UserId { get; set; }
 
     }
 }
