@@ -28,6 +28,8 @@ namespace Agenda.Contatos.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpContextAccessor();
+
             // adicionando permissão para requisição na API
             services.AddCors(options =>
             {
@@ -42,8 +44,21 @@ namespace Agenda.Contatos.Api
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
+            // Adicionando Identity
+            services.AddIdentityConfiguration(Configuration);
+
             // mapear as entidades Model > ViewModel e vise versa
             services.AddAutoMapper(typeof(Startup));
+
+
+            //services.WebApiConfig();
+            //services.AddSession(options => {
+            //    options.IdleTimeout = TimeSpan.FromMinutes(1);
+            //});
+
+            services.AddMvc();
+
+            //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             // Adicionando NewtonsoftJson para resolução do contrato
             services.AddControllersWithViews().AddNewtonsoftJson(options =>
@@ -65,21 +80,34 @@ namespace Agenda.Contatos.Api
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
             app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             if (env.IsDevelopment())
             {
+                app.UseCors("Development");
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseCors("Development"); // Usar apenas nas demos => Configuração Ideal: Production
+                app.UseHsts();
+            }
+
+
+            //app.UseSession();
+            //app.UseMvcConfiguration();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}");
             });
+
+            
         }
     }
 }

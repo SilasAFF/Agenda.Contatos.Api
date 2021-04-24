@@ -3,6 +3,7 @@ using Agenda.Contatos.Api.ViewModels;
 using Agenda.Contatos.Business.Interfaces;
 using Agenda.Contatos.Business.Models;
 using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,11 @@ namespace Agenda.Contatos.Api.Controllers
         private readonly IEnderecoService _Enderecoservice;
         private readonly IMapper _mapper;
 
-        public EnderecosController(IEnderecoRepository EnderecoRepository, IMapper mapper, IEnderecoService Enderecoservice, INotificador notificador) : base(notificador)
+        public EnderecosController(IEnderecoRepository EnderecoRepository, 
+                                   IMapper mapper, 
+                                   IEnderecoService Enderecoservice, 
+                                   INotificador notificador,
+                                   IUser user) : base(notificador, user)
         {
             _EnderecoRepository = EnderecoRepository;
             _Enderecoservice = Enderecoservice;

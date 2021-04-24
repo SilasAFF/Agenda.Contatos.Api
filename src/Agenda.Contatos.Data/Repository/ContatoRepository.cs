@@ -17,9 +17,9 @@ namespace Agenda.Contatos.Data.Repository
            
         }
 
-        public async Task<List<Contato>> ObterContatosOrdenados()
+        public async Task<List<Contato>> ObterContatosOrdenados(string userId)
         {
-            return await Db.Contatos.OrderBy(x => x.Favorito == false).ThenBy(y => y.Nome).AsNoTracking().ToListAsync();
+            return await Db.Contatos.Where(b => b.UserId == userId).OrderBy(x => x.Favorito == false).ThenBy(y => y.Nome).AsNoTracking().ToListAsync();
         }
     }
 }

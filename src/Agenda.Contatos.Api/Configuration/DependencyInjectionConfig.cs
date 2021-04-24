@@ -1,8 +1,10 @@
-﻿using Agenda.Contatos.Business.Interfaces;
+﻿using Agenda.Contatos.Api.Extensions;
+using Agenda.Contatos.Business.Interfaces;
 using Agenda.Contatos.Business.Notificacoes;
 using Agenda.Contatos.Business.Services;
 using Agenda.Contatos.Data.Context;
 using Agenda.Contatos.Data.Repository;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -19,9 +21,13 @@ namespace Agenda.Contatos.Api.Configuration
             services.AddScoped<AgendaDbContext>();
             services.AddScoped<IContatoRepository, ContatoRepository>();
             services.AddScoped<IEnderecoRepository, EnderecoRepository>();
+
             services.AddScoped<INotificador, Notificador>();
             services.AddScoped<IContatoService, ContatoService>();
             services.AddScoped<IEnderecoService, EnderecoService>();
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped<IUser, AspNetUser>();
 
             return services;
         }

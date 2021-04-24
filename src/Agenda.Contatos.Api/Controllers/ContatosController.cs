@@ -1,7 +1,11 @@
-﻿using Agenda.Contatos.Api.ViewModels;
+﻿using Agenda.Contatos.Api.Extensions;
+using Agenda.Contatos.Api.ViewModels;
 using Agenda.Contatos.Business.Interfaces;
 using Agenda.Contatos.Business.Models;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,6 +14,7 @@ using System.Threading.Tasks;
 
 namespace Agenda.Contatos.Api.Controllers
 {
+    [Authorize]
     [Route("api/contatos")]
     public class ContatosController : MainController
     {
@@ -17,24 +22,44 @@ namespace Agenda.Contatos.Api.Controllers
         private readonly IContatoService _contatoService;
         private readonly IMapper _mapper;
 
-        public ContatosController(IContatoRepository contatoRepository, IMapper mapper, IContatoService contatoService, INotificador notificador) : base(notificador)
+        private readonly UserManager<IdentityUser> _userManager;
+     
+        public ContatosController(IContatoRepository contatoRepository, 
+                                  IMapper mapper, 
+                                  IContatoService contatoService, 
+                                  INotificador notificador,
+                                  IUser user,
+                                  UserManager<IdentityUser> userManager) : base(notificador, user)
         {
             _contatoRepository = contatoRepository;
             _contatoService = contatoService;
             _mapper = mapper;
+
+            _userManager = userManager;
+
+        
+
         }
 
+        /*
         [HttpGet]
         public async Task<IEnumerable<ContatoViewModel>> ObterTodos()
         {
-            //var contato = _mapper.Map<IEnumerable<ContatoViewModel>>(await _contatoRepository.ObterTodos());
-            var contato = _mapper.Map<IEnumerable<ContatoViewModel>>(await _contatoRepository.ObterContatosOrdenados());  
+            var contato = _mapper.Map<IEnumerable<ContatoViewModel>>(await _contatoRepository.ObterTodos()); 
+            return contato;
+        }*/
+
+        [HttpGet("{usuarioId}")]
+        public async Task<IEnumerable<ContatoViewModel>> ObterTodos(string usuarioId)
+        {
+            var contato = _mapper.Map<IEnumerable<ContatoViewModel>>(await _contatoRepository.ObterContatosOrdenados(usuarioId));
             return contato;
         }
 
-        [HttpGet("{id:guid}")]
+        [HttpGet("{usuarioid}/{id:guid}")]
         public async Task<ActionResult<ContatoViewModel>> ObterPorId(Guid id)
         {
+
             var contato = _mapper.Map<ContatoViewModel>(await _contatoRepository.ObterPorId(id));
 
             if (contato == null) return NotFound();
@@ -42,24 +67,28 @@ namespace Agenda.Contatos.Api.Controllers
             return contato;
         }
 
-        [HttpPost]
-        public async Task<ActionResult<ContatoViewModel>> Adicionar(ContatoViewModel contatoViewModel)
+        [HttpPost("{usuarioid}")]
+        public async Task<ActionResult<ContatoViewModel>> Adicionar(string usuarioId , ContatoViewModel contatoViewModel)
         {
 
             if (!ModelState.IsValid) return CustomResponse(ModelState);
+
+            contatoViewModel.UserId = usuarioId;
 
             await _contatoService.Adicionar(_mapper.Map<Contato>(contatoViewModel));
 
             return CustomResponse(contatoViewModel);
         }
 
-        [HttpPut("{id:guid}")]
-        public async Task<ActionResult<ContatoViewModel>> Atualizar(Guid id, ContatoViewModel contatoViewModel)
+        [HttpPut("{usuarioid}/{id:guid}")]
+        public async Task<ActionResult<ContatoViewModel>> Atualizar(string usuarioId, Guid id, ContatoViewModel contatoViewModel)
         {
 
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
             if (id != contatoViewModel.Id) return BadRequest();
+
+            contatoViewModel.UserId = usuarioId;
 
             await _contatoService.Atualizar(_mapper.Map<Contato>(contatoViewModel));
 
