@@ -15,7 +15,7 @@ namespace Agenda.Contatos.Data.Context
 
         public DbSet<Contato> Contatos { get; set; }
         public DbSet<Endereco> Enderecos { get; set; }
-
+        public DbSet<Calendario> Calendario { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

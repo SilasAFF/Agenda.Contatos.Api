@@ -21,10 +21,12 @@ namespace Agenda.Contatos.Api.Configuration
             services.AddScoped<AgendaDbContext>();
             services.AddScoped<IContatoRepository, ContatoRepository>();
             services.AddScoped<IEnderecoRepository, EnderecoRepository>();
+            services.AddScoped<ICalendarioRepository, CalendarioRepository>();
 
             services.AddScoped<INotificador, Notificador>();
             services.AddScoped<IContatoService, ContatoService>();
             services.AddScoped<IEnderecoService, EnderecoService>();
+            services.AddScoped<ICalendarioService, CalendarioService>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IUser, AspNetUser>();

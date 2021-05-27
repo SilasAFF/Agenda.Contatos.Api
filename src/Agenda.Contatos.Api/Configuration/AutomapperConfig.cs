@@ -14,6 +14,8 @@ namespace Agenda.Contatos.Api.Configuration
         {
             CreateMap<Contato, ContatoViewModel>().ReverseMap();
             CreateMap<Endereco, EnderecoViewModel>().ReverseMap();
+            CreateMap<Calendario, CalendarioViewModel>().ReverseMap();
+
 
         }
     }

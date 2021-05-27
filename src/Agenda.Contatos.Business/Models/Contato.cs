@@ -12,6 +12,8 @@ namespace Agenda.Contatos.Business.Models
         public bool Favorito { get; set; }
         public Endereco Endereco { get; set; }
         public string UserId { get; set; }
+        public bool PendenciaFinanceira { get; set; }
+
 
     }
 }

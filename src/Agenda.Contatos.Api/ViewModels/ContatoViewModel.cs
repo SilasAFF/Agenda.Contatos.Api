@@ -26,5 +26,8 @@ namespace Agenda.Contatos.Api.ViewModels
 
         public string UserId { get; set; }
 
+        public bool PendenciaFinanceira { get; set; }
+
+
     }
 }
