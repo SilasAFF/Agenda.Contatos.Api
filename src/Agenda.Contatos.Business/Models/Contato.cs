@@ -13,6 +13,7 @@ namespace Agenda.Contatos.Business.Models
         public Endereco Endereco { get; set; }
         public string UserId { get; set; }
         public bool PendenciaFinanceira { get; set; }
+        public string ValorPendente { get; set; }
 
 
     }

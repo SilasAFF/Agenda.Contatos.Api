@@ -28,6 +28,7 @@ namespace Agenda.Contatos.Api.ViewModels
 
         public bool PendenciaFinanceira { get; set; }
 
+        public string ValorPendente { get; set; }
 
     }
 }

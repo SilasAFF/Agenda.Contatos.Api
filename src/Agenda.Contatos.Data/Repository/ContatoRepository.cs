@@ -21,5 +21,10 @@ namespace Agenda.Contatos.Data.Repository
         {
             return await Db.Contatos.Where(b => b.UserId == userId).OrderBy(x => x.Favorito == false).ThenBy(y => y.Nome).AsNoTracking().ToListAsync();
         }
+
+        public async Task<List<Contato>> ObterContatosOrdenadosPendenciaFinanceira(string userId)
+        {
+            return await Db.Contatos.Where(b => b.UserId == userId).OrderBy(x => x.Favorito == false).ThenBy(y => y.Nome).Where(z => z.PendenciaFinanceira == true).AsNoTracking().ToListAsync();
+        }
     }
 }

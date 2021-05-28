@@ -9,6 +9,7 @@ namespace Agenda.Contatos.Business.Interfaces
     public interface IContatoRepository : IRepository<Contato>
     {
         Task<List<Contato>> ObterContatosOrdenados(string userId);
+        Task<List<Contato>> ObterContatosOrdenadosPendenciaFinanceira(string userId);
     }
 
     
